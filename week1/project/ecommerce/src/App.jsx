@@ -21,7 +21,7 @@ function App() {
           </a>
         </div>
       </div>
-      <Categories changeCategory={changeCategory} />
+      <Categories selectedCategory={category} changeCategory={changeCategory} />
       <Products category={category} />
     </>
   );
