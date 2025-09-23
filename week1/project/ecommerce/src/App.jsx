@@ -1,7 +1,13 @@
 import Categories from "./Categories.jsx";
 import Products from "./Products.jsx";
+import { useState } from "react";
 
 function App() {
+  const [category, setCategory] = useState("all");
+  function changeCategory(newCategory) {
+    setCategory(newCategory);
+  }
+
   return (
     <>
       <div class="title-container">
@@ -15,7 +21,7 @@ function App() {
           </a>
         </div>
       </div>
-      <Categories />
+      <Categories changeCategory={changeCategory} />
       <Products />
     </>
   );
