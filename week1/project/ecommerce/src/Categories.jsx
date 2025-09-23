@@ -9,7 +9,7 @@ export default function Categories({ selectedCategory, changeCategory }) {
           <div
             className={`categories--item ${
               selectedCategory === category ? "categories--item-selected" : ""
-            } ${console.log("\n", selectedCategory, "\n", category)}`}
+            }`}
             onClick={(e) => changeCategory(e.target.textContent)}
           >
             {category}
