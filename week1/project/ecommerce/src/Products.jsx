@@ -17,9 +17,9 @@ export default function Products() {
               </div>
               <span
                 class="product--title"
-                title={product.title.replace("Fake: ", "")}
+                title={(product.title = product.title.replace("Fake: ", ""))}
               >
-                {product.title.replace("Fake: ", "")}
+                {product.title}
               </span>
             </div>
           </a>
