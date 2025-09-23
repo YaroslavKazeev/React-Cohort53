@@ -22,7 +22,7 @@ function App() {
         </div>
       </div>
       <Categories changeCategory={changeCategory} />
-      <Products />
+      <Products category={category} />
     </>
   );
 }

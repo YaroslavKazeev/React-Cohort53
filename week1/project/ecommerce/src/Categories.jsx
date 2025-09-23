@@ -5,10 +5,7 @@ export default function Categories({ changeCategory }) {
       {categories.map((category) => (
         <div
           class="categories--item"
-          onClick={(e) => {
-            console.log(e.target.textContent);
-            return changeCategory(e.target.textContent);
-          }}
+          onClick={(e) => changeCategory(e.target.textContent)}
         >
           {(category = category.replace("FAKE: ", ""))}
         </div>
