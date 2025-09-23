@@ -1,26 +1,26 @@
 import products from "./fake-data/all-products.js";
 export default function Products({ category }) {
   return (
-    <ul class="products">
+    <ul className="products">
       {products
         .filter(
           (product) => category === product.category || category === "all"
         )
         .map((product) => (
-          <li class="products--item">
+          <li className="products--item">
             <a href={`/product/${product.id}`}>
-              <div class="product">
-                <div class="product-image--container">
-                  <img class="product-image" src={product.image} />
-                  <div class="product-image--favourite-container">
+              <div className="product">
+                <div className="product-image--container">
+                  <img className="product-image" src={product.image} />
+                  <div className="product-image--favourite-container">
                     <img
-                      class="product-image--favourite"
-                      src="./src/assets/heart-regular.svg"
+                      className="product-image--favourite"
+                      src="/assets/heart-regular.svg"
                     />
                   </div>
                 </div>
                 <span
-                  class="product--title"
+                  className="product--title"
                   title={(product.title = product.title.replace("Fake: ", ""))}
                 >
                   {product.title}
