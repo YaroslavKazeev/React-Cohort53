@@ -4,9 +4,6 @@ import { useState } from "react";
 
 function App() {
   const [category, setCategory] = useState("all");
-  function changeCategory(newCategory) {
-    setCategory(newCategory);
-  }
 
   return (
     <>
@@ -21,7 +18,7 @@ function App() {
           </a>
         </div>
       </div>
-      <Categories selectedCategory={category} changeCategory={changeCategory} />
+      <Categories selectedCategory={category} setCategory={setCategory} />
       <Products category={category} />
     </>
   );

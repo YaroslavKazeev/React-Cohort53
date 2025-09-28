@@ -1,6 +1,6 @@
 import categories from "./fake-data/all-categories.js";
 
-export default function Categories({ selectedCategory, changeCategory }) {
+export default function Categories({ selectedCategory, setCategory }) {
   return (
     <div className="categories">
       {categories.map((category) => {
@@ -10,7 +10,7 @@ export default function Categories({ selectedCategory, changeCategory }) {
             className={`categories--item ${
               selectedCategory === category ? "categories--item-selected" : ""
             }`}
-            onClick={(e) => changeCategory(e.target.textContent)}
+            onClick={(e) => setCategory(e.target.textContent)}
           >
             {category}
           </div>
