@@ -1,10 +1,9 @@
-import Categories from "./Categories.jsx";
+import CategoriesController from "./CategoriesController.jsx";
 import Products from "./Products.jsx";
 import { useState } from "react";
 
 function App() {
   const [category, setCategory] = useState("all");
-
   return (
     <>
       <div className="title-container">
@@ -18,7 +17,10 @@ function App() {
           </a>
         </div>
       </div>
-      <Categories selectedCategory={category} setCategory={setCategory} />
+      <CategoriesController
+        selectedCategory={category}
+        setCategory={setCategory}
+      />
       <Products category={category} />
     </>
   );
