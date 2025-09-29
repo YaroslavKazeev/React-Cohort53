@@ -1,12 +1,8 @@
-import products from "./fake-data/all-products.js";
-export default function Products({ category }) {
-  return (
-    <ul className="products">
-      {products
-        .filter(
-          (product) => category === product.category || category === "all"
-        )
-        .map((product) => (
+export default function Products({ products }) {
+  if (products) {
+    return (
+      <ul className="products">
+        {products.map((product) => (
           <li className="products--item">
             <a href={`/product/${product.id}`}>
               <div className="product">
@@ -19,16 +15,14 @@ export default function Products({ category }) {
                     />
                   </div>
                 </div>
-                <span
-                  className="product--title"
-                  title={(product.title = product.title.replace("Fake: ", ""))}
-                >
+                <span className="product--title" title={product.title}>
                   {product.title}
                 </span>
               </div>
             </a>
           </li>
         ))}
-    </ul>
-  );
+      </ul>
+    );
+  }
 }

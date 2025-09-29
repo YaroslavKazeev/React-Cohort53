@@ -12,9 +12,9 @@ export default function CategoriesController({
     );
     const data = await response.json();
     setCategories(data);
+    setCategory("all");
   }
   useEffect(() => getCategories, []);
-  console.log(categories);
   return (
     <Categories
       categories={categories}
