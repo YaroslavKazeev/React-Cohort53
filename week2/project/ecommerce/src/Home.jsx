@@ -2,7 +2,7 @@ import { useState } from "react";
 import CategoriesController from "./CategoriesController.jsx";
 import ProductsController from "./ProductsController.jsx";
 
-function App() {
+function Home() {
   const [category, setCategory] = useState();
 
   return (
@@ -27,4 +27,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Products({ products }) {
   let output = <div>Error loading products. Please try again later.</div>;
   products === "error"
@@ -8,7 +9,7 @@ export default function Products({ products }) {
         <ul className="products">
           {products.map((product) => (
             <li className="products--item">
-              <a href={`/product/${product.id}`}>
+              <Link to={`/product/${product.id}`}>
                 <div className="product">
                   <div className="product-image--container">
                     <img className="product-image" src={product.image} />
@@ -23,7 +24,7 @@ export default function Products({ products }) {
                     {product.title}
                   </span>
                 </div>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
