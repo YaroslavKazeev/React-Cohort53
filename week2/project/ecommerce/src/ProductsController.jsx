@@ -10,7 +10,9 @@ export default function ProductsController({ category }) {
     (async () => {
       setProducts([]);
       let URL = PRODUCTS_URL;
-      category === "all" ? URL : (URL += `/category/${category}`);
+      category === "all" || category === undefined
+        ? URL
+        : (URL += `/category/${category}`);
       fetcher(URL, setProducts);
     })();
   }, [category]);
