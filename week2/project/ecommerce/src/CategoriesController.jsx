@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Categories from "./Categories.jsx";
 import { CATEGORIES_URL } from "./constants.js";
+import fetcher from "./fetcher.js";
 
 export default function CategoriesController({
   selectedCategory,
@@ -8,14 +9,7 @@ export default function CategoriesController({
 }) {
   const [categories, setCategories] = useState(null);
   async function getCategories() {
-    let data = "error";
-    try {
-      const response = await fetch(CATEGORIES_URL);
-      data = await response.json();
-    } catch (error) {
-      console.log("Fetch error:", error);
-    }
-    setCategories(data);
+    fetcher(CATEGORIES_URL, setCategories);
     setCategory("all");
   }
   useEffect(() => getCategories, []);
