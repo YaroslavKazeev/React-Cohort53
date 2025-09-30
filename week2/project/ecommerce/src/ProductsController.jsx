@@ -6,6 +6,7 @@ export default function ProductsController({ category }) {
 
   useEffect(() => {
     (async () => {
+      setProducts([]);
       let URL = "https://fakestoreapi.com/products";
       category === "all" ? URL : (URL += `/category/${category}`);
       const response = await fetch(URL);

@@ -3,20 +3,22 @@ export default function Categories({
   selectedCategory,
   setCategory,
 }) {
-  if (categories) {
-    return (
-      <div className="categories">
-        {categories.map((category) => (
-          <div
-            className={`categories--item ${
-              selectedCategory === category ? "categories--item-selected" : ""
-            }`}
-            onClick={(e) => setCategory(e.target.textContent)}
-          >
-            {category}
-          </div>
-        ))}
-      </div>
-    );
-  }
+  let output = <div>Loading categories...</div>;
+  !categories
+    ? output
+    : (output = (
+        <div className="categories">
+          {categories.map((category) => (
+            <div
+              className={`categories--item ${
+                selectedCategory === category ? "categories--item-selected" : ""
+              }`}
+              onClick={(e) => setCategory(e.target.textContent)}
+            >
+              {category}
+            </div>
+          ))}
+        </div>
+      ));
+  return output;
 }
