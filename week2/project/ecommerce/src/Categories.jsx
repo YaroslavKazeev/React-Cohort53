@@ -3,9 +3,11 @@ export default function Categories({
   selectedCategory,
   setCategory,
 }) {
-  let output = <div>Loading categories...</div>;
-  !categories
+  let output = <div>Error loading categories. Please try again later.</div>;
+  categories === "error"
     ? output
+    : !categories
+    ? (output = <div>Loading categories...</div>)
     : (output = (
         <div className="categories">
           {categories.map((category) => (

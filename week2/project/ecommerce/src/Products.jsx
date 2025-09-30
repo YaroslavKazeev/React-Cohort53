@@ -1,7 +1,9 @@
 export default function Products({ products }) {
-  let output = <div>Loading products...</div>;
-  !products || products.length === 0
+  let output = <div>Error loading products. Please try again later.</div>;
+  products === "error"
     ? output
+    : !products || products.length === 0
+    ? (output = <div>Loading products...</div>)
     : (output = (
         <ul className="products">
           {products.map((product) => (

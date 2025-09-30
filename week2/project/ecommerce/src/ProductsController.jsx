@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Products from "./Products.jsx";
+import { PRODUCTS_URL } from "./constants.js";
 
 export default function ProductsController({ category }) {
   const [products, setProducts] = useState();
@@ -7,10 +8,15 @@ export default function ProductsController({ category }) {
   useEffect(() => {
     (async () => {
       setProducts([]);
-      let URL = "https://fakestoreapi.com/products";
+      let URL = PRODUCTS_URL;
       category === "all" ? URL : (URL += `/category/${category}`);
-      const response = await fetch(URL);
-      const data = await response.json();
+      let data = "error";
+      try {
+        const response = await fetch(URL);
+        data = await response.json();
+      } catch (error) {
+        console.log("Fetch error:", error);
+      }
       setProducts(data);
     })();
   }, [category]);
