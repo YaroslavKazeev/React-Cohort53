@@ -8,11 +8,14 @@ export default function CategoriesController({
   setCategory,
 }) {
   const [categories, setCategories] = useState(null);
-  async function getCategories() {
-    fetcher(CATEGORIES_URL, setCategories);
-    setCategory("all");
-  }
-  useEffect(() => getCategories, []);
+
+  useEffect(() => {
+    (async () => {
+      fetcher(CATEGORIES_URL, setCategories);
+      setCategory("all");
+    })();
+  }, []);
+
   return (
     <Categories
       categories={categories}
