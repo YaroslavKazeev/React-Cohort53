@@ -1,3 +1,4 @@
+import FavoriteHeart from "./FavoriteHeart";
 import Nav from "./Nav";
 
 export default function Product({ product }) {
@@ -21,11 +22,7 @@ export default function Product({ product }) {
                   alt={product.title}
                 />
                 <div className="product-image--favourite-container">
-                  <img
-                    className="product-image--favourite"
-                    src="/assets/heart-regular.svg"
-                    alt="heart-regular"
-                  />
+                  <FavoriteHeart productId={product.id} />
                 </div>
               </div>
               <p className="product-details--description">
