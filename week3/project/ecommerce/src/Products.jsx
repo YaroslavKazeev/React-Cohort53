@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { FavoriteIDsContext } from "./main.jsx";
 export default function Products({ products }) {
+  console.log(useContext(FavoriteIDsContext));
   let output = <div>Error loading products. Please try again later.</div>;
   products === "error"
     ? output
