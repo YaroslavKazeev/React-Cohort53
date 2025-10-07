@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { FavoriteIDsContext } from "./main.jsx";
+import { FavoritesContext } from "./App.jsx";
+
 export default function Products({ products }) {
-  console.log(useContext(FavoriteIDsContext));
+  const { favorites, changeFavorites } = useContext(FavoritesContext);
+
+  console.log(favorites);
   let output = <div>Error loading products. Please try again later.</div>;
   products === "error"
     ? output
@@ -19,8 +22,18 @@ export default function Products({ products }) {
                     <div className="product-image--favourite-container">
                       <img
                         className="product-image--favourite"
-                        src="/assets/heart-regular.svg"
-                        alt="heart-regular"
+                        src={
+                          favorites.has(product.id)
+                            ? "/assets/heart-solid.svg"
+                            : "/assets/heart-regular.svg"
+                        }
+                        alt="the favorite icon"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          changeFavorites(product.id);
+                        }}
+                        role="button"
+                        aria-label="toggle favorite"
                       />
                     </div>
                   </div>
