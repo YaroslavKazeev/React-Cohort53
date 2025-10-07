@@ -5,21 +5,23 @@ export default function Product({ product }) {
     : !product || product.length === 0
     ? (output = <div>Loading product...</div>)
     : (output = (
-        <div class="product-details" data-testid="product-details-page">
-          <div class="title-container">
-            <h1 class="title-container--title">{product.title}</h1>
+        <div className="product-details" data-testid="product-details-page">
+          <div className="title-container">
+            <h1 className="title-container--title">{product.title}</h1>
           </div>
-          <div class="product-details--information">
-            <div class="product-details--image">
-              <div class="product-image--container">
+          <div className="product-details--information">
+            <div className="product-details--image">
+              <div className="product-image--container">
                 <img
-                  class="product-image"
+                  className="product-image"
                   src={product.image}
                   alt={product.title}
                 />
               </div>
             </div>
-            <p class="product-details--description">{product.description}</p>
+            <p className="product-details--description">
+              {product.description}
+            </p>
           </div>
         </div>
       ));

@@ -8,7 +8,7 @@ export default function Products({ products }) {
     : (output = (
         <ul className="products">
           {products.map((product) => (
-            <li className="products--item">
+            <li key={product.id} className="products--item">
               <Link to={`/product/${product.id}`}>
                 <div className="product">
                   <div className="product-image--container">
@@ -17,6 +17,7 @@ export default function Products({ products }) {
                       <img
                         className="product-image--favourite"
                         src="/assets/heart-regular.svg"
+                        alt="heart-regular"
                       />
                     </div>
                   </div>

@@ -12,7 +12,6 @@ export default function CategoriesController({
   useEffect(() => {
     (async () => {
       fetcher(CATEGORIES_URL, setCategories);
-      setCategory("all");
     })();
   }, []);
 

@@ -7,11 +7,9 @@ import fetcher from "./fetcher.js";
 export default function ProductController() {
   const { id } = useParams();
   const [product, setProduct] = useState();
-  console.log("ProductController id:", id);
 
   useEffect(() => {
     (async () => {
-      console.log("Fetching product with id:", id);
       if (!id) return;
       setProduct([]);
       fetcher(`${PRODUCTS_URL}/${id}`, setProduct);

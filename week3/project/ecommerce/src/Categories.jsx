@@ -9,18 +9,19 @@ export default function Categories({
     : !categories
     ? (output = <div>Loading categories...</div>)
     : (output = (
-        <div className="categories">
+        <ul className="categories">
           {categories.map((category) => (
-            <div
+            <li
+              key={category}
               className={`categories--item ${
                 selectedCategory === category ? "categories--item-selected" : ""
               }`}
               onClick={(e) => setCategory(e.target.textContent)}
             >
               {category}
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       ));
   return output;
 }

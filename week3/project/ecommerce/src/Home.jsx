@@ -3,7 +3,7 @@ import CategoriesController from "./CategoriesController.jsx";
 import ProductsController from "./ProductsController.jsx";
 
 function Home() {
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState("all");
 
   return (
     <>
