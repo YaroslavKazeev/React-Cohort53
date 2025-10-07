@@ -1,3 +1,5 @@
+import Nav from "./Nav";
+
 export default function Product({ product }) {
   let output = <div>Error loading product. Please try again later.</div>;
   product === "error"
@@ -8,6 +10,7 @@ export default function Product({ product }) {
         <div className="product-details" data-testid="product-details-page">
           <div className="title-container">
             <h1 className="title-container--title">{product.title}</h1>
+            <Nav />
           </div>
           <div className="product-details--information">
             <div className="product-details--image">
@@ -17,11 +20,18 @@ export default function Product({ product }) {
                   src={product.image}
                   alt={product.title}
                 />
+                <div className="product-image--favourite-container">
+                  <img
+                    className="product-image--favourite"
+                    src="/assets/heart-regular.svg"
+                    alt="heart-regular"
+                  />
+                </div>
               </div>
+              <p className="product-details--description">
+                {product.description}
+              </p>
             </div>
-            <p className="product-details--description">
-              {product.description}
-            </p>
           </div>
         </div>
       ));

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CategoriesController from "./CategoriesController.jsx";
 import ProductsController from "./ProductsController.jsx";
+import Nav from "./Nav.jsx";
 
 function Home() {
   const [category, setCategory] = useState("all");
@@ -9,14 +10,7 @@ function Home() {
     <>
       <div className="title-container">
         <h1 className="title-container--title">Products</h1>
-        <div className="nav">
-          <a className="nav-link" href="/">
-            Products
-          </a>
-          <a className="nav-link" href="/favourites">
-            Favourites
-          </a>
-        </div>
+        <Nav />
       </div>
       <CategoriesController
         selectedCategory={category}
