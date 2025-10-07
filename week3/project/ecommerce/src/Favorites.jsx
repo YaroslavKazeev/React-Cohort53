@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import FavoriteHeart from "./FavoriteHeart.jsx";
 
-export default function Products({ products }) {
+export default function Favorites({ products }) {
   let output = <div>Error loading products. Please try again later.</div>;
   products === "error"
     ? output
@@ -15,7 +15,7 @@ export default function Products({ products }) {
                 <div className="product">
                   <div className="product-image--container">
                     <img className="product-image" src={product.image} />
-                    <FavoriteHeart id={product.id} />
+                    <FavoriteHeart productId={product.id} />
                   </div>
                   <span className="product--title" title={product.title}>
                     {product.title}

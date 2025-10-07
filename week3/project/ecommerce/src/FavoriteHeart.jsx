@@ -1,21 +1,21 @@
 import { useContext } from "react";
-import { FavoritesContext } from "./App.jsx";
+import { FavIDsContext } from "./App.jsx";
 
-export default function FavoriteHeart({ productId }) {
-  const { favorites, changeFavorites } = useContext(FavoritesContext);
+export default function FavoriteHeart({ id }) {
+  const { favIDs, changeFavIDs } = useContext(FavIDsContext);
   return (
     <div className="product-image--favourite-container">
       <img
         className="product-image--favourite"
         src={
-          favorites.has(productId)
+          favIDs.has(id)
             ? "/assets/heart-solid.svg"
             : "/assets/heart-regular.svg"
         }
         alt="the favorite icon"
         onClick={(e) => {
           e.preventDefault();
-          changeFavorites(productId, favorites);
+          changeFavIDs(id, favIDs);
         }}
         role="button"
         aria-label="toggle favorite"

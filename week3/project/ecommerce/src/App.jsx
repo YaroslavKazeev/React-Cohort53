@@ -3,32 +3,32 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import Home from "./Home.jsx";
 import ProductController from "./ProductController.jsx";
+import FavoritesController from "./FavoritesController.jsx";
 
-const FavoritesContext = createContext();
+const FavIDsContext = createContext();
 
 function App() {
-  const [favorites, setFavorites] = useState(() => new Set());
+  const [favIDs, setFavIDs] = useState(() => new Set());
 
-  function changeFavorites(productId, favorites) {
-    setFavorites(() => {
-      const newFavSet = new Set(favorites);
-      newFavSet.has(productId)
-        ? newFavSet.delete(productId)
-        : newFavSet.add(productId);
+  function changeFavIDs(id, favIDs) {
+    setFavIDs(() => {
+      const newFavSet = new Set(favIDs);
+      newFavSet.has(id) ? newFavSet.delete(id) : newFavSet.add(id);
       return newFavSet;
     });
   }
 
   return (
-    <FavoritesContext.Provider value={{ favorites, changeFavorites }}>
+    <FavIDsContext.Provider value={{ favIDs, changeFavIDs }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="product/:id" element={<ProductController />} />
+          <Route path="favorites" element={<FavoritesController />} />
         </Routes>
       </BrowserRouter>
-    </FavoritesContext.Provider>
+    </FavIDsContext.Provider>
   );
 }
 
-export { App, FavoritesContext };
+export { App, FavIDsContext };

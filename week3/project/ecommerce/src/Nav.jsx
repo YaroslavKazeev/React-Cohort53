@@ -6,8 +6,8 @@ export default function Nav() {
       <Link className="nav-link" to="/">
         Products
       </Link>
-      <Link className="nav-link" to="/favourites">
-        Favourites
+      <Link className="nav-link" to="/favorites">
+        Favorites
       </Link>
     </div>
   );
