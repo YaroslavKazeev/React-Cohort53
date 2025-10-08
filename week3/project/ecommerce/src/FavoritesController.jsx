@@ -12,7 +12,7 @@ export default function FavoritesController() {
     (async () => {
       setFavProducts([]);
       let favoritesList = [];
-      if (favIDs && favIDs.size > 0) {
+      if (favIDs.size > 0) {
         for (let id of favIDs) {
           const data = await fetcher(`${PRODUCTS_URL}/${id}`);
           data === "error" ? (favoritesList = data) : favoritesList.push(data);
