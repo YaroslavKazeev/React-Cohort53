@@ -1,9 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import Favorites from "./Favorites.jsx";
-import Products from "./Products.jsx";
+import { FavIDsContext } from "./App.jsx";
 import { PRODUCTS_URL } from "./constants.js";
 import fetcher from "./fetcher.js";
-import { FavIDsContext } from "./App.jsx";
 
 export default function FavoritesController() {
   const { favIDs } = useContext(FavIDsContext);
@@ -13,16 +12,11 @@ export default function FavoritesController() {
     (async () => {
       setFavProducts([]);
       let favoritesList = [];
-      console.log(favIDs);
       if (favIDs && favIDs.size > 0) {
         for (let id of favIDs) {
           const data = await fetcher(`${PRODUCTS_URL}/${id}`);
-          if (data !== "error") {
-            favoritesList.push(data);
-          } else {
-            favoritesList = data;
-            return;
-          }
+          data === "error" ? (favoritesList = data) : favoritesList.push(data);
+          if (data === "error") break;
         }
       } else {
         favoritesList = "NoFavorites";
@@ -30,6 +24,6 @@ export default function FavoritesController() {
       setFavProducts(favoritesList);
     })();
   }, [favIDs]);
-  console.log(favProducts);
-  return <Products products={favProducts} />;
+
+  return <Favorites products={favProducts} />;
 }

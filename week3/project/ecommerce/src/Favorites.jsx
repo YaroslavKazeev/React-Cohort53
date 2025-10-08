@@ -1,30 +1,16 @@
-import { Link } from "react-router-dom";
-import FavoriteHeart from "./FavoriteHeart.jsx";
+import Nav from "./Nav.jsx";
+import Products from "./Products.jsx";
 
-export default function Favorites({ products }) {
-  let output = <div>Error loading products. Please try again later.</div>;
-  products === "error"
-    ? output
-    : !products || products.length === 0
-    ? (output = <div>Loading products...</div>)
-    : (output = (
-        <ul className="products">
-          {products.map((product) => (
-            <li key={product.id} className="products--item">
-              <Link to={`/product/${product.id}`}>
-                <div className="product">
-                  <div className="product-image--container">
-                    <img className="product-image" src={product.image} />
-                    <FavoriteHeart productId={product.id} />
-                  </div>
-                  <span className="product--title" title={product.title}>
-                    {product.title}
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      ));
-  return output;
+function Favorites({ products }) {
+  return (
+    <>
+      <div className="title-container">
+        <h1 className="title-container--title">Favorites</h1>
+        <Nav />
+      </div>
+      <Products products={products} />
+    </>
+  );
 }
+
+export default Favorites;
