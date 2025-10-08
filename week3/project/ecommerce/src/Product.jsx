@@ -22,7 +22,7 @@ export default function Product({ product }) {
                   alt={product.title}
                 />
                 <div className="product-image--favourite-container">
-                  <FavoriteHeart productId={product.id} />
+                  <FavoriteHeart id={product.id} />
                 </div>
               </div>
               <p className="product-details--description">
